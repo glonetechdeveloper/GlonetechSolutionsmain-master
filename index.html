@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glonetech Solutions</title>
+<style>
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: #0a0a0a;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Google font loaded inline via @import for speed */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap');
+
+/* ═══════════════════════════════════════════
+   LOADER SCREEN
+═══════════════════════════════════════════ */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* stays on top until JS removes it */
+}
+
+/* ── Logo top-left ── */
+.loader-logo {
+  position: absolute;
+  top: 36px;
+  left: 44px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 1px;
+  color: #fff;
+  opacity: 0;
+  animation: fadeInItem .6s .2s ease forwards;
+  z-index: 2;
+}
+.loader-logo span { color: #1a6fff; }
+
+/* ── Agency tag bottom-left ── */
+.loader-tag {
+  position: absolute;
+  bottom: 36px;
+  left: 44px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(10px, 1.2vw, 12px);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  opacity: 0;
+  animation: fadeInItem .6s .4s ease forwards;
+}
+
+/* ── Status text bottom-right ── */
+.loader-status {
+  position: absolute;
+  bottom: 36px;
+  right: 44px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: clamp(10px, 1.2vw, 11px);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  opacity: 0;
+  animation: fadeInItem .6s .5s ease forwards;
+  text-align: right;
+}
+
+/* ── Giant percentage number ── */
+.loader-count-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  line-height: 1;
+  user-select: none;
+}
+
+.loader-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(20vw, 28vw, 20px);
+  color: #fff;
+  line-height: .9;
+  letter-spacing: -4px;
+  /* Transition for smooth number update */
+  transition: opacity .1s;
+  /* starts invisible, fades in */
+  opacity: 0;
+  animation: fadeInItem .5s .1s ease forwards;
+  /* Clip number so it sits cleanly */
+  display: block;
+  will-change: contents;
+}
+
+.loader-pct {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: clamp(6vw, 8vw, 100px);
+  color: #1a6fff;
+  line-height: 1;
+  letter-spacing: -2px;
+  padding-bottom: 2vw;
+  opacity: 0;
+  animation: fadeInItem .5s .2s ease forwards;
+}
+
+/* ── Thin progress bar at very bottom ── */
+.loader-bar-wrap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,.06);
+}
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: #1a6fff;
+  transition: width .25s cubic-bezier(.4,0,.2,1);
+  will-change: width;
+}
+
+/* ── Horizontal line above number ── */
+.loader-line {
+  position: absolute;
+  top: 50%;
+  left: 44px; right: 44px;
+  height: 1px;
+  background: rgba(255,255,255,.07);
+  transform: translateY(-14vw);
+}
+
+/* ── Small loading dots ── */
+.loader-dots {
+  display: flex;
+  gap: 6px;
+  position: absolute;
+  bottom: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeInItem .6s .6s ease forwards;
+}
+.loader-dots span {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.2);
+}
+.loader-dots span.active { background: #1a6fff; }
+
+/* ═══════════════════════════════════════════
+   EXIT ANIMATIONS
+═══════════════════════════════════════════ */
+
+/* When loading hits 100, the number slides up and away */
+#loader.exit .loader-count-wrap {
+  animation: slideUpExit .7s cubic-bezier(.6,0,.2,1) forwards;
+}
+#loader.exit .loader-logo,
+#loader.exit .loader-tag,
+#loader.exit .loader-status,
+#loader.exit .loader-dots,
+#loader.exit .loader-line {
+  animation: fadeOutItem .4s ease forwards;
+}
+/* The whole loader screen wipes upward to reveal main site */
+#loader.wipe {
+  animation: wipeUp .8s cubic-bezier(.76,0,.24,1) .25s forwards;
+}
+
+/* ═══════════════════════════════════════════
+   MAIN SITE IFRAME / REDIRECT TARGET
+   The main site sits behind the loader.
+   We use an iframe OR we just redirect.
+   See DEVELOPER NOTE below.
+═══════════════════════════════════════════ */
+
+/* ── Keyframes ── */
+@keyframes fadeInItem {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOutItem {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes slideUpExit {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-12vh); }
+}
+@keyframes wipeUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100%); }
+}
+@keyframes dotPulse {
+  0%, 100% { opacity: .2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .loader-logo { top: 24px; left: 24px; }
+  .loader-tag  { bottom: 24px; left: 24px; font-size: 9px; }
+  .loader-status { bottom: 24px; right: 24px; font-size: 9px; }
+  .loader-line { left: 24px; right: 24px; }
+  .loader-num  { letter-spacing: -2px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     LOADER OVERLAY
+═══════════════════════════════════════════════════════ -->
+<div id="loader">
+
+  <!-- Top-left: brand name -->
+  <!--<div class="loader-logo">GLONE<span>TECH</span>®</div>-->
+
+  <!-- Horizontal rule -->
+  <div class="loader-line"></div>
+
+  <!-- Giant counter -->
+  <div class="loader-count-wrap">
+    <span class="loader-num" id="counterNum">0</span>
+    <span class="loader-pct">%</span>
+  </div>
+
+  <!-- Bottom-left: tagline -->
+  <div class="loader-tag">Media &amp; Creative Agency</div>
+
+  <!-- Bottom-right: status message -->
+  <div class="loader-status" id="statusText">Loading assets…</div>
+
+  <!-- Animated dots -->
+  <div class="loader-dots">
+    <span id="d1"></span>
+    <span id="d2"></span>
+    <span id="d3"></span>
+  </div>
+
+  <!-- Progress bar at very bottom edge -->
+  <div class="loader-bar-wrap">
+    <div class="loader-bar" id="progressBar"></div>
+  </div>
+
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+
+   DEVELOPER: MAIN SITE URL
+   ════════════════════════
+   Replace the value below with the URL of your main
+   website (your index.html / Glonetech main page).
+
+   Examples:
+     'index.html'               ← if both files are in same folder
+     '/glonetech/index.html'    ← if in a subfolder
+     'https://glonetech.com'    ← if on a live domain
+
+   This is the ONLY line you need to change.
+
+═══════════════════════════════════════════════════════ */
+const MAIN_SITE_URL = 'main.html'; /* ← CHANGE THIS */
+
+
+/* ═══════════════════════════════════════════════════════
+
+   DEVELOPER: ASSETS TO PRELOAD
+   ════════════════════════════
+   List every image and video src used in your main
+   site (index.html) here. The loader will fetch all
+   of them silently in the background, and the
+   percentage reflects real loading progress.
+
+   Add/remove entries as your assets change.
+   Format:
+     { type: 'image', src: 'assets/filename.jpg' }
+     { type: 'video', src: 'assets/filename.mp4' }
+
+   Leave the array empty [] and the loader will still
+   run a timed simulation (good during development
+   before real assets are added).
+
+═══════════════════════════════════════════════════════ */
+const ASSETS = [
+
+  /* ── Hero ── */
+  { type: 'video', src: 'video/WEBSITE_1.webm' },
+  // { type: 'image', src: 'assets/YOUR-POSTER-IMAGE.jpg' },
+
+  /* ── Logo ── */
+  // { type: 'image', src: 'assets/YOUR-LOGO-FILE.png' },
+
+  // graphics
+  /* ── Logo ── */
+   { type: 'image', src: 'assets/logo.png' },
+   { type: 'image', src: 'assets/logo2.png' },
+   { type: 'image', src: 'assets/logo3.png' },
+   { type: 'image', src: 'assets/logow.png' },
+   { type: 'image', src: 'assets/logow2.png' },
+   { type: 'image', src: 'assets/logow3.png' },
+   { type: 'image', src: 'assets/logow4.png' },
+
+  // graphics
+  { type: 'image', src: './Graphics/1.png' },
+  { type: 'image', src: './Graphics/Magazine.png' },
+  { type: 'image', src: './Graphics/Starting.png' },
+  { type: 'image', src: './Graphics/2.jpg' },
+  { type: 'image', src: './Graphics/2.png' },
+  { type: 'image', src: './Graphics/2 (2).jpg' },
+  { type: 'image', src: './Graphics/3.png' },
+  { type: 'image', src: './Graphics/Artboard 4.jpg' },
+  { type: 'image', src: './Graphics/Blood-port.jpg' },
+  { type: 'image', src: './Graphics/Ara.jpg' },
+  
+
+  /* ── Team photos ── */
+  { type: 'image', src: 'logos/bloom.png' },
+  { type: 'image', src: 'logos/bmf.png' },
+  { type: 'image', src: 'logos/campus.png' },
+  { type: 'image', src: 'logos/genzeal.png' },
+  { type: 'image', src: 'logos/heroes.png' },
+  { type: 'image', src: 'logos/move.png' },
+  { type: 'image', src: 'logos/pj.png' },
+  { type: 'image', src: 'logos/rccg.png' },
+  { type: 'image', src: 'logos/redeem.png' },
+  { type: 'image', src: 'logos/redef.png' },
+  { type: 'image', src: 'logos/resobridge.png' },
+  { type: 'image', src: 'logos/srat.png' },
+  { type: 'image', src: 'logos/CIMUN_-removebg-preview.png' },
+  { type: 'image', src: 'logos/CIMUN2-removebg-preview.png' },
+
+  /* ── Case study images ── */
+  // { type: 'image', src: 'assets/project-1.jpg' },
+  // { type: 'image', src: 'assets/project-2.jpg' },
+  // { type: 'image', src: 'assets/project-3.jpg' },
+  // { type: 'image', src: 'assets/project-4.jpg' },
+  // { type: 'image', src: 'assets/project-5.jpg' },
+  // { type: 'image', src: 'assets/project-6.jpg' },
+  // { type: 'image', src: 'assets/project-7.jpg' },
+  // { type: 'image', src: 'assets/project-8.jpg' },
+
+  /* ── Testimonial thumbnails ── */
+  // { type: 'image', src: 'assets/thumb-client1.jpg' },
+  // { type: 'image', src: 'assets/thumb-client2.jpg' },
+  // { type: 'image', src: 'assets/thumb-client3.jpg' },
+  // { type: 'image', src: 'assets/thumb-client4.jpg' },
+  // { type: 'image', src: 'assets/thumb-client5.jpg' },
+
+  /* ── Testimonial videos ── */
+  // { type: 'video', src: 'assets/testimonial-client1.mp4' },
+  // { type: 'video', src: 'assets/testimonial-client2.mp4' },
+  // { type: 'video', src: 'assets/testimonial-client3.mp4' },
+
+  /* ── About / founder photo ── */
+  // { type: 'image', src: 'assets/founder.jpg' },
+
+  /* Add more assets here following the same format */
+
+
+
+];
+
+/* ═══════════════════════════════════════════════════════
+   ENGINE — no need to edit below this line
+═══════════════════════════════════════════════════════ */
+
+const counterEl  = document.getElementById('counterNum');
+const barEl      = document.getElementById('progressBar');
+const statusEl   = document.getElementById('statusText');
+const loaderEl   = document.getElementById('loader');
+const dots       = [document.getElementById('d1'), document.getElementById('d2'), document.getElementById('d3')];
+
+let currentPct   = 0;
+let targetPct    = 0;
+let rafId        = null;
+let dotInterval  = null;
+let dotIndex     = 0;
+
+/* ── Dot pulse animation ── */
+function animateDots() {
+  dots.forEach(d => d.classList.remove('active'));
+  dots[dotIndex % dots.length].classList.add('active');
+  dotIndex++;
+}
+
+/* ── Smooth counter update via rAF ── */
+function animateCounter() {
+  if (currentPct < targetPct) {
+    /* Ease toward target: jump faster when far, slower when close */
+    const step = Math.max(1, Math.ceil((targetPct - currentPct) * .12));
+    currentPct = Math.min(targetPct, currentPct + step);
+    counterEl.textContent = currentPct;
+    barEl.style.width = currentPct + '%';
+  }
+  if (currentPct < 100) {
+    rafId = requestAnimationFrame(animateCounter);
+  } else {
+    /* Hit 100 — trigger exit */
+    counterEl.textContent = 100;
+    barEl.style.width = '100%';
+    clearInterval(dotInterval);
+    onLoadComplete();
+  }
+}
+
+/* ── Status messages that cycle during load ── */
+const statusMessages = [
+  'Loading assets…',
+  'Fetching resources…',
+  'Almost there…',
+  'Polishing pixels…',
+  'Nearly ready…',
+];
+
+/* ── Main preload logic ── */
+function startPreload() {
+  dotInterval = setInterval(animateDots, 350);
+  rafId = requestAnimationFrame(animateCounter);
+
+  let msgIdx = 0;
+  const msgInterval = setInterval(() => {
+    msgIdx = (msgIdx + 1) % statusMessages.length;
+    statusEl.textContent = statusMessages[msgIdx];
+  }, 900);
+
+  /* If no real assets listed, run a timed simulation */
+  if (!ASSETS || ASSETS.length === 0) {
+    simulateLoad(msgInterval);
+    return;
+  }
+
+  /* Real asset preloading */
+  let loaded = 0;
+  const total = ASSETS.length;
+
+  function onAssetDone() {
+    loaded++;
+    targetPct = Math.round((loaded / total) * 100);
+    if (loaded >= total) {
+      clearInterval(msgInterval);
+      statusEl.textContent = 'Ready.';
+      /* Give counter time to reach 100 */
+      const waitForCounter = setInterval(() => {
+        if (currentPct >= 100) { clearInterval(waitForCounter); }
+      }, 50);
+    }
+  }
+
+  ASSETS.forEach(asset => {
+    if (asset.type === 'image') {
+      const img = new Image();
+      img.onload  = onAssetDone;
+      img.onerror = onAssetDone; /* count failures too so we don't stall */
+      img.src = asset.src;
+
+    } else if (asset.type === 'video') {
+      /* For video, we just preload metadata (not the whole file — that would be huge) */
+      const vid = document.createElement('video');
+      vid.preload = 'metadata';
+      vid.onloadedmetadata = onAssetDone;
+      vid.onerror          = onAssetDone;
+      vid.src = asset.src;
+
+    } else {
+      /* Unknown type — use fetch */
+      fetch(asset.src, { method: 'HEAD' })
+        .then(onAssetDone)
+        .catch(onAssetDone);
+    }
+  });
+}
+
+/* ── Timed simulation (used when ASSETS array is empty) ── */
+function simulateLoad(msgInterval) {
+  /* Realistic simulation: fast start, slow middle, snappy finish */
+  const schedule = [
+    { delay: 80,   pct: 8  },
+    { delay: 200,  pct: 18 },
+    { delay: 380,  pct: 31 },
+    { delay: 600,  pct: 45 },
+    { delay: 900,  pct: 58 },
+    { delay: 1200, pct: 70 },
+    { delay: 1500, pct: 80 },
+    { delay: 1750, pct: 88 },
+    { delay: 1950, pct: 94 },
+    { delay: 2200, pct: 100},
+  ];
+
+  schedule.forEach(({ delay, pct }) => {
+    setTimeout(() => {
+      targetPct = pct;
+      if (pct === 100) {
+        clearInterval(msgInterval);
+        statusEl.textContent = 'Ready.';
+      }
+    }, delay);
+  });
+}
+
+/* ── Called when counter reaches 100 ── */
+function onLoadComplete() {
+  /* Short pause at 100% so user can see it */
+  setTimeout(() => {
+    /* Step 1: animate content out */
+    loaderEl.classList.add('exit');
+
+    /* Step 2: wipe the whole loader upward */
+    setTimeout(() => {
+      loaderEl.classList.add('wipe');
+
+      /* Step 3: after wipe, navigate to main site */
+      setTimeout(() => {
+        window.location.href = MAIN_SITE_URL;
+      }, 1100);
+
+    }, 500);
+
+  }, 350);
+}
+
+/* ── Boot ── */
+window.addEventListener('DOMContentLoaded', startPreload);
+
+</script>
+</body>
+</html>

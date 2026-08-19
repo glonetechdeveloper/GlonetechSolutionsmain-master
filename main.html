@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Glonetech Solutions® | Nigeria's #1 Media & Creative Agency. We don't just create content — we engineer brand dominance. 50+ clients. 100+ projects delivered.">
+<meta name="keywords" content="media agency Nigeria, creative agency Abuja, brand strategy, video production, social media marketing, content creation, Glonetech Solutions">
+<meta property="og:title" content="Glonetech Solutions® | Media & Creative Agency">
+<meta property="og:description" content="Growing a brand is hard. We make it a whole lot easier, more predictable, and a lot more profitable.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logow2.png">
+<title>Glonetech Solutions® | Media & Creative Agency</title>
+
+<!-- ============================================================
+  DEVELOPER MEDIA GUIDE — Search "DEVELOPER:" to find every slot
+  ============================================================
+  [HERO VIDEO]       → <video> tag in #hero section
+  [HERO POSTER]      → poster= attribute on hero video
+  [AWARDS LOGOS]     → .awards-placeholder spans in awards strip
+  [CLIENT LOGOS]     → .seen-track spans in client logos strip
+  [CASE STUDY IMGS]  → inline style on each .cs-card
+  [TESTIMONIAL VIDS] → data-video attribute on .testi-card
+  [TESTIMONIAL THUMBS] → inline style on .testi-thumb divs
+  [CLIENT LOGOS IN TESTIMONIALS] → .testi-logo-placeholder divs
+  [ABOUT PHOTO]      → .book-img-wrap img tag
+  [TEAM PHOTOS]      → inline style on each .team-photo div
+  [LOGO IMAGE]       → nav logo area
+  ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #0a0a0a;
+  --off-black: #111111;
+  --dark: #141414;
+  --card: #1a1a1a;
+  --border: #2a2a2a;
+  --white: #ffffff;
+  --off-white: #f0ede8;
+  --muted: #888888;
+  --accent: #1a6fff;
+  --accent-dark: #1255d4;
+  --font-head: 'Montserrat', sans-serif;
+  --font-body: 'Merriweather', serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);font-size:18px;line-height:1.8;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ANN BAR */
+.ann-bar{background:var(--accent);color:#fff;text-align:center;padding:10px 20px;font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:.5px}
+.ann-bar a{color:#fff;text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:900;background:var(--black);border-bottom:1px solid var(--border);padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.nav-logo{font-family:var(--font-head);font-weight:900;font-size:20px;letter-spacing:-.5px;color:var(--white);display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--accent)}
+/* DEVELOPER: Nav logo image — replace text with: <img src="assets/logo.png" alt="Glonetech Solutions" style="height:38px"> */
+.nav-phone{font-family:var(--font-head);font-weight:700;font-size:15px;color:var(--white);border:1.5px solid var(--border);padding:8px 18px;border-radius:4px;transition:border-color .2s}
+.nav-phone:hover{border-color:var(--accent);color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{font-family:var(--font-head);font-size:13px;font-weight:700;padding:6px 14px;color:var(--muted);transition:color .2s;letter-spacing:.3px}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--accent)!important;color:#fff!important;border-radius:4px;font-weight:800!important;padding:9px 20px!important}
+.nav-cta:hover{background:var(--accent-dark)!important}
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:26px;height:2px;background:white;transition:.3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--black);z-index:800;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--white)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.72) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.88) 100%)}
+/* DEVELOPER: HERO BACKGROUND VIDEO
+   Replace this <div> with a <video> element:
+   <video autoplay muted loop playsinline poster="assets/hero-poster.jpg" style="width:100%;height:100%;object-fit:cover">
+     <source src="assets/hero-reel.mp4" type="video/mp4">
+   </video>
+   Format: MP4/H.264, 1920x1080+, <8MB, no audio required
+   poster= shows before video loads (use a still frame from your video) */
+.hero-bg-placeholder{width:100%;height:100%;background:#0d1a0d center/cover no-repeat
+  /* DEVELOPER: Add your hero background IMAGE as fallback:
+     background-image: url('assets/hero-bg.jpg')  */
+}
+.hero-content{position:relative;z-index:1;max-width:860px;text-align:center;padding:120px 40px 80px}
+.hero-tag{display:inline-block;font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent);background:rgba(26,111,255,.1);border:1px solid rgba(26,111,255,.3);padding:6px 18px;border-radius:100px;margin-bottom:1.5rem}
+.hero-title{font-family:var(--font-head);font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:.95;letter-spacing:-3px;margin-bottom:1.5rem}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{font-family:var(--font-body);font-size:clamp(1rem,1.8vw,1.25rem);color:rgba(255,255,255,.75);line-height:1.8;max-width:600px;margin:0 auto 2.5rem}
+.hero-form{display:flex;max-width:480px;margin:0 auto 1.2rem;border:2px solid var(--accent);border-radius:6px;overflow:hidden}
+.hero-form input{flex:1;background:rgba(0,0,0,.6);border:none;outline:none;padding:16px 20px;color:white;font-family:var(--font-head);font-size:14px}
+.hero-form input::placeholder{color:rgba(255,255,255,.35)}
+.hero-form button{background:var(--accent);color:#fff;border:none;cursor:pointer;padding:16px 28px;font-family:var(--font-head);font-weight:800;font-size:14px;transition:background .2s;white-space:nowrap}
+.hero-form button:hover{background:var(--accent-dark)}
+.hero-disclaimer{font-family:var(--font-head);font-size:11px;color:rgba(255,255,255,.4);font-style:italic;margin-bottom:2rem}
+.hero-stars-row{display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--font-head);font-size:13px;color:rgba(255,255,255,.6)}
+.stars{color:#FFD700;letter-spacing:2px}
+
+/* AWARDS STRIP */
+.awards-strip{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden;padding:16px 0}
+.awards-track{display:flex;animation:scrollLeft 26s linear infinite;width:max-content}
+.award-item{padding:0 50px;white-space:nowrap;font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22);display:flex;align-items:center;gap:10px}
+/* DEVELOPER: Replace .award-item spans with actual award logo images:
+   <img src="assets/award-google-partner.png" alt="Google Partner" style="height:36px;opacity:.5;filter:grayscale(1)">
+   Duplicate the entire track div for seamless loop */
+
+
+/*graphics carousel section*/
+/* ===== SWEATPANTS CONTINUOUS CAROUSEL ===== */
+
+.sp-section {
+  position: relative;
+  background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px;
+  background-size: 60px 60px;
+  padding: 120px 0;
+  overflow: hidden;
+}
+
+/* Track animation */
+.sp-track {
+  display: flex;
+  gap: 35px;
+  width: max-content;
+  animation: scrollInfinite 40s linear infinite;
+}
+
+/* Continuous motion */
+@keyframes scrollInfinite {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Card styling */
+.sp-card {
+  width: 260px;
+  height: 540px;
+  border-radius: 36px;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Staggered fade in */
+.sp-card:nth-child(1) { animation-delay: 0.1s; }
+.sp-card:nth-child(2) { animation-delay: 0.2s; }
+.sp-card:nth-child(3) { animation-delay: 0.3s; }
+.sp-card:nth-child(4) { animation-delay: 0.4s; }
+.sp-card:nth-child(5) { animation-delay: 0.5s; }
+.sp-card:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sp-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+}
+
+/* Pop out hover */
+.sp-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Fade edges */
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #000000, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #000000, transparent);
+}
+
+/* Pause on hover */
+.sp-section:hover .sp-track {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .sp-card {
+    width: 200px;
+    height: 415px;
+  }
+
+  .sp-track {
+    gap: 25px;
+  }
+}
+
+/* ===== MODAL ===== */
+
+.sp-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.sp-modal img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 20px;
+}
+
+.sp-close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+  
+
+
+/* LETTER SECTION */
+#letter{background:var(--black);padding:100px 40px}
+.letter-wrap{max-width:720px;margin:0 auto}
+.letter-date{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.letter-salutation{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--muted);margin-bottom:2.5rem}
+.letter-body{font-family:var(--font-body);font-size:18px;line-height:1.9;color:rgba(255,255,255,.85)}
+.letter-body p{margin-bottom:1.6rem}
+.letter-body p.big{font-family:var(--font-head);font-size:clamp(1.4rem,2.5vw,2rem);font-weight:900;line-height:1.25;color:var(--white);margin-bottom:2rem;letter-spacing:-.5px}
+.letter-body strong{color:var(--white)}
+.letter-body em{color:var(--accent);font-style:italic}
+.btn-main{display:inline-block;background:var(--accent);color:#fff;padding:20px 44px;border-radius:6px;font-family:var(--font-head);font-size:17px;font-weight:900;letter-spacing:.5px;transition:background .2s,transform .15s;margin:1.5rem 0}
+.btn-main:hover{background:var(--accent-dark);transform:translateY(-2px)}
+
+
+
+/*video carousel section*/
+.video-carousel-section {
+  padding: 20px 0;
+  background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px;
+  background-size: 60px 60px;
+  overflow: hidden;
+}
+
+.video-carousel-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.video-carousel-title {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.video-carousel-line {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #0066ff, #4da3ff);
+  margin: 0 auto 80px;
+}
+
+.video-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+
+ 
+}
+
+.video-carousel-track {
+  width: 350px;
+  flex-shrink: 0;
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: scrollVideos 25s linear infinite;
+}
+
+.video-item {
+  width: 280px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  transition: transform .4s ease;
+}
+
+
+
+/* Hover lift */
+
+
+/* Overlay control button */
+.video-controls {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 5;
+}
+
+.video-controls button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.video-controls button:hover {
+  background: #0057ff;
+  transform: scale(1.05);
+}
+
+.video-control:hover {
+  background: #0066ff;
+}
+
+
+/* Infinite scrolling */
+@keyframes scrollVideos {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation when hovered */
+.video-carousel-wrapper:hover .video-carousel-track {
+  animation-play-state: paused;
+}
+
+/* Toggle button */
+.video-toggle {
+  margin-top: 50px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 30px;
+  background: #0066ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.video-toggle:hover {
+  background: #004ecc;
+}
+
+/* YouTube iframe wrapper — keeps 9:16 portrait ratio like your original videos */
+.video-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%; /* 9:16 aspect ratio */
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.video-iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none; /* prevents clicking into YouTube */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .video-item {
+    width: 260px;
+  }
+}
+
+
+/* OFFERING */
+#offering{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px}
+.sec-label{font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--accent);text-align:center;margin-bottom:.8rem}
+.sec-title{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.5rem);font-weight:900;text-align:center;letter-spacing:-1px;line-height:1.05;margin-bottom:4rem}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1000px;margin:0 auto;background:var(--border);border:1px solid var(--border)}
+.offer-card{background:var(--off-black);padding:3rem 2.5rem;transition:background .25s}
+.offer-card:hover{background:var(--card)}
+.offer-tag{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.offer-name{font-family:var(--font-head);font-size:1.5rem;font-weight:900;margin-bottom:1rem;line-height:1.2;letter-spacing:-.5px}
+.offer-card p{font-family:var(--font-body);font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:2rem}
+.offer-stars{font-family:var(--font-head);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-bottom:1.5rem}
+.offer-btn{display:inline-block;background:transparent;border:2px solid var(--accent);color:var(--accent);padding:12px 24px;font-family:var(--font-head);font-weight:800;font-size:13px;letter-spacing:1px;text-transform:uppercase;border-radius:4px;transition:background .2s,color .2s}
+.offer-btn:hover{background:var(--accent);color:#fff}
+
+/* CLIENT LOGOS */
+.seen-strip{background:var(--black);padding:50px 40px;border-bottom:1px solid var(--border)}
+.seen-label{font-family:var(--font-head);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2.5rem}
+.seen-logos{overflow:hidden}
+.seen-track{display:flex;align-items:center;gap:60px;animation:scrollLeft 30s linear infinite;width:max-content}
+/* DEVELOPER: Replace .logo-ph spans with actual client logo <img> tags:
+   <img src="assets/client-logo-name.png" alt="Client Name" style="height:30px;opacity:.35;filter:grayscale(1) brightness(2)"> */
+.logo-ph{font-family:var(--font-head);font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.18);white-space:nowrap}
+
+/* STATS */
+#stats{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 40px}
+.stats-hl{font-family:var(--font-head);font-size:clamp(1.5rem,3vw,2.5rem);font-weight:900;text-align:center;letter-spacing:-1px;margin-bottom:4rem;line-height:1.2}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);max-width:1000px;margin:0 auto;border:1px solid var(--border)}
+.stat-box{background:var(--off-black);padding:3rem 2rem;text-align:center}
+.stat-num{font-family:var(--font-head);font-size:clamp(2.5rem,4vw,4rem);font-weight:900;color:var(--white);line-height:1;letter-spacing:-2px}
+.stat-num span{color:var(--accent)}
+.stat-desc{font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.6;margin-top:.6rem}
+
+/* CASE STUDIES */
+#work{background:var(--black);padding:100px 40px}
+.cs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto 3rem}
+/* DEVELOPER: CASE STUDY IMAGES
+   Set background-image on each .cs-card via inline style.
+   e.g. style="background-image:url('assets/project-client1.jpg')"
+   Recommended size: 782x1036px (portrait). Dark/rich images work best. */
+.cs-card{border-radius:8px;overflow:hidden;aspect-ratio:3/4;position:relative;background:var(--card) center/cover no-repeat;transition:transform .25s;cursor:pointer}
+.cs-card:hover{transform:scale(1.025)}
+.cs-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 55%)}
+.cs-card-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;z-index:1}
+.cs-client{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.cs-result{font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--white);line-height:1.3}
+
+/* PLATFORM */
+#platform{background:var(--off-black);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 40px}
+.platform-inner{max-width:900px;margin:0 auto;text-align:center}
+.platform-title{font-family:var(--font-head);font-size:clamp(2rem,4.5vw,4rem);font-weight:900;letter-spacing:-1.5px;line-height:1.05;margin-bottom:1.5rem}
+.platform-sub{font-family:var(--font-body);font-size:18px;color:var(--muted);line-height:1.8;max-width:680px;margin:0 auto 3rem}
+/* DEVELOPER: AGENCY SHOWREEL IMAGE or VIDEO
+   Replace the .platform-ph div below with either:
+   Option A — Image: <img src="assets/agency-showreel-poster.jpg" alt="Glonetech in action" style="width:100%;border-radius:8px">
+   Option B — YouTube: <iframe width="100%" height="500" src="https://www.youtube.com/embed/YOUR_ID?rel=0" frameborder="0" allowfullscreen style="border-radius:8px"></iframe>
+   Option C — Self-hosted video (uses modal system below) */
+.platform-ph{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:80px 20px;text-align:center;margin-bottom:3rem}
+.platform-ph span{display:block;font-size:3rem;margin-bottom:12px}
+.platform-ph p{font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--black);padding:100px 40px}
+/* DEVELOPER: VIDEO TESTIMONIALS
+   For each .testi-card:
+   1. Set thumbnail: <div class="testi-thumb" style="background-image:url('assets/thumb-client1.jpg')">
+   2. Set video:     <div class="testi-card" data-video="assets/testimonial-client1.mp4">
+   3. Add logo:      Replace .logo-ph-t text with <img src="assets/logo-client1.png" style="height:28px">
+   Thumbnail size: 1200x673px. Video: MP4, compressed. */
+.testi-list{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;cursor:pointer;transition:border-color .2s}
+.testi-card:hover{border-color:rgba(26,111,255,.4)}
+.testi-inner{display:flex;align-items:stretch}
+.testi-thumb{width:260px;min-width:260px;height:146px;background:var(--border) center/cover no-repeat;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+/* DEVELOPER: Set background-image on .testi-thumb for each card */
+.thumb-ph{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center;padding:10px}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:rgba(26,111,255,.92);display:flex;align-items:center;justify-content:center;transition:.2s}
+.testi-card:hover .play-btn{transform:translate(-50%,-50%) scale(1.1)}
+.play-btn::after{content:'';width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:16px solid #000;margin-left:3px}
+.testi-info{padding:1.5rem 2rem;flex:1;display:flex;flex-direction:column;justify-content:center}
+.logo-ph-t{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:.8rem}
+.testi-quote{font-family:var(--font-body);font-style:italic;font-size:15px;color:var(--off-white);line-height:1.65;margin-bottom:.8rem}
+.testi-author{font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--muted)}
+
+/* VIDEO MODAL */
+.v-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.93);align-items:center;justify-content:center}
+.v-modal.open{display:flex}
+.v-modal-inner{position:relative;width:90%;max-width:900px}
+.v-modal-inner video{width:100%;border-radius:8px}
+.v-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:2.2rem;cursor:pointer;font-family:var(--font-head);font-weight:300;line-height:1}
+
+/* ABOUT */
+#about{background:var(--off-black);border-top:1px solid var(--border);padding:100px 40px}
+.about-grid{display:grid;grid-template-columns:420px 1fr;gap:5rem;max-width:1000px;margin:0 auto;align-items:center}
+/* DEVELOPER: ABOUT / FOUNDER PHOTO
+   Replace .about-ph div with:
+   <img src="assets/founder.jpg" alt="Glonetech Founder" style="width:100%;border-radius:8px">
+   Recommended: Portrait photo, professional, well-lit */
+.about-img{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:var(--card)}
+.about-ph{padding:80px 20px;text-align:center}
+.about-ph span{display:block;font-size:3.5rem;margin-bottom:12px}
+.about-ph p{font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.about-content .sec-label,.about-content .sec-title{text-align:left}
+.about-content .sec-title{font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1.5rem;margin-top:.5rem}
+.about-content p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
+.about-content p strong{color:var(--white)}
+.about-content p em{color:var(--accent);font-style:italic}
+.about-stars{display:flex;align-items:center;gap:8px;margin-top:1.5rem;font-family:var(--font-head);font-size:13px;color:var(--muted)}
+.about-stars .stars{font-size:17px}
+
+/* SERVICES */
+#services{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);max-width:1100px;margin:0 auto}
+.svc-card{background:var(--black);padding:2.5rem;transition:background .2s;position:relative;overflow:hidden}
+.svc-card:hover{background:var(--off-black)}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.svc-card:hover::before{transform:scaleX(1)}
+.svc-n{font-family:var(--font-head);font-size:60px;font-weight:900;color:rgba(255,255,255,.04);line-height:1;position:absolute;top:1rem;right:1.5rem;letter-spacing:-3px;user-select:none}
+.svc-icon{font-size:1.8rem;margin-bottom:1.2rem}
+.svc-name{font-family:var(--font-head);font-size:1.05rem;font-weight:800;margin-bottom:.7rem}
+.svc-desc{font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.7}
+
+/* TEAM */
+#team{background:var(--off-black);border-top:1px solid var(--border);padding:100px 40px}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;max-width:1100px;margin:0 auto}
+/* DEVELOPER: TEAM PHOTOS
+   Set background-image on each .team-photo via inline style:
+   style="background-image:url('assets/team-john.jpg')"
+   Recommended: Portrait photos, consistent studio/style
+   Remove .team-ph placeholder div once image is added */
+.team-card{border-radius:8px;overflow:hidden;border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.team-card:hover{border-color:rgba(26,111,255,.3);transform:translateY(-4px)}
+.team-photo{aspect-ratio:3/4;background:var(--card) center/cover no-repeat}
+.team-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(160deg,#111,#1a2a1a);font-family:var(--font-head);font-size:2.5rem;font-weight:900;color:rgba(26,111,255,.15)}
+.team-info{padding:1.2rem 1.4rem;background:var(--card)}
+.team-name{font-family:var(--font-head);font-size:.9rem;font-weight:800}
+.team-role{font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-top:3px;text-transform:uppercase}
+
+/* PROCESS */
+#process{background:var(--black);border-top:1px solid var(--border);padding:100px 40px}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1100px;margin:0 auto;position:relative}
+.proc-steps::before{content:'';position:absolute;top:32px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.proc-step{padding:0 1.5rem;text-align:center}
+.proc-circle{width:64px;height:64px;border-radius:50%;border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1.3rem;font-weight:900;color:var(--accent);margin:0 auto 1.5rem;background:var(--black);position:relative;z-index:1;transition:background .2s,color .2s}
+.proc-step:hover .proc-circle{background:var(--accent);color:#000}
+.proc-name{font-family:var(--font-head);font-size:14px;font-weight:800;margin-bottom:.5rem}
+.proc-desc{font-family:var(--font-body);font-size:13px;color:var(--muted);line-height:1.65}
+
+/* BIG CTA */
+#cta{background:linear-gradient(135deg,#0d1b3e 0%,#0a2a6e 50%,#0d1b3e 100%);padding:100px 40px;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(26,111,255,.2)}
+#cta::before{content:'GLONETECH';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--font-head);font-size:25vw;font-weight:900;color:rgba(255,255,255,.04);white-space:nowrap;pointer-events:none;line-height:1;letter-spacing:-5px}
+.cta-inner{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.cta-title{font-family:var(--font-head);font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;color:#fff;line-height:.95;letter-spacing:-2px;margin-bottom:1.5rem}
+.cta-sub{font-family:var(--font-body);font-size:1.1rem;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto 3rem;line-height:1.75}
+.cta-btn{display:inline-block;background:var(--accent);color:#fff;padding:22px 52px;border-radius:6px;font-family:var(--font-head);font-size:18px;font-weight:900;letter-spacing:.5px;transition:transform .15s,box-shadow .15s;margin-bottom:1.5rem}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.cta-stars-wrap{font-family:var(--font-head);font-size:13px;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;gap:8px}
+.cta-stars-wrap .stars{color:#FFD700}
+.cta-note{font-family:var(--font-head);font-size:12px;font-style:italic;color:rgba(255,255,255,.4);margin-top:1rem}
+
+/* CONTACT */
+#contact{background:var(--off-black);border-top:1px solid var(--border);padding:100px 40px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;max-width:1100px;margin:0 auto;align-items:start}
+.contact-info .sec-label,.contact-info .sec-title{text-align:left}
+.contact-info .sec-title{font-size:clamp(2rem,3.5vw,3.5rem);margin-top:.5rem;margin-bottom:1.5rem}
+.contact-info p{font-family:var(--font-body);font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
+.c-det{display:flex;gap:1rem;align-items:flex-start;margin-bottom:1.2rem}
+.c-icon{font-size:1.2rem;margin-top:3px;flex-shrink:0}
+.c-lbl{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.c-val{font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.75)}
+.c-form{display:flex;flex-direction:column;gap:1rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.f-grp{display:flex;flex-direction:column;gap:6px}
+.f-lbl{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.f-in,.f-sel,.f-ta{background:var(--card);border:1px solid var(--border);color:var(--white);padding:14px 16px;font-family:var(--font-body);font-size:15px;border-radius:4px;outline:none;width:100%;transition:border-color .2s}
+.f-in::placeholder,.f-ta::placeholder{color:rgba(255,255,255,.2)}
+.f-in:focus,.f-sel:focus,.f-ta:focus{border-color:rgba(26,111,255,.5)}
+.f-sel option{background:var(--card)}
+.f-ta{resize:vertical;min-height:120px}
+.f-submit{background:var(--accent);color:#fff;border:none;cursor:pointer;padding:18px;border-radius:4px;font-family:var(--font-head);font-size:16px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;transition:background .2s,transform .15s}
+.f-submit:hover{background:var(--accent-dark);transform:translateY(-2px)}
+.f-note{font-family:var(--font-head);font-size:11px;color:var(--muted);text-align:center}
+
+/* FOOTER */
+footer{background:#000;border-top:1px solid var(--border);padding:70px 40px 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3.5rem}
+.f-logo{font-family:var(--font-head);font-weight:900;font-size:18px;margin-bottom:1rem;letter-spacing:-.5px}
+.f-logo span{color:var(--accent)}
+/* DEVELOPER: Footer logo — replace text with: <img src="assets/logo.png" alt="Glonetech Solutions" style="height:34px;margin-bottom:1rem"> */
+.footer-brand p{font-family:var(--font-body);font-size:14px;color:var(--muted);line-height:1.75}
+.footer-col h5{font-family:var(--font-head);font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.footer-col ul a{font-family:var(--font-body);font-size:14px;color:var(--muted);transition:color .2s}
+.footer-col ul a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-family:var(--font-head);font-size:12px;color:var(--muted)}
+.socials{display:flex;gap:10px}
+.soc{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:all .2s}
+.soc:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ANIMATIONS */
+@keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.reveal{opacity:1;transform:none;transition:opacity .65s ease,transform .65s ease}.reveal.pre-animate{opacity:0;transform:translateY(26px)}
+.reveal.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .cs-grid{grid-template-columns:repeat(3,1fr)}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .proc-steps{grid-template-columns:repeat(2,1fr);gap:3rem}
+  .proc-steps::before{display:none}
+  .footer-top{grid-template-columns:1fr 1fr}
+  .offer-grid{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  nav,#letter,#offering,.seen-strip,#stats,#work,#platform,#testimonials,#about,#services,#team,#process,#cta,#contact,footer{padding-left:20px;padding-right:20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-phone{display:none}
+  .cs-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .testi-inner{flex-direction:column}
+  .testi-thumb{width:100%;min-width:100%;height:200px}
+  .offer-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .f-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:2rem}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .svc-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .hero-content{padding:100px 20px 60px}
+  .hero-form{flex-direction:column}
+  .hero-form input,.hero-form button{border-radius:4px}
+}
+@media(max-width:480px){
+  .cs-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .proc-steps{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ── FADE-IN ANIMATIONS ── */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+
+.fade-up{animation:fadeInUp .8s ease both}
+.fade-down{animation:fadeInDown .8s ease both}
+.fade-left{animation:fadeInLeft .8s ease both}
+.fade-right{animation:fadeInRight .8s ease both}
+.fade-in{animation:fadeIn .8s ease both}
+.scale-in{animation:scaleIn .7s ease both}
+
+.delay-1{animation-delay:.1s}
+.delay-2{animation-delay:.2s}
+.delay-3{animation-delay:.3s}
+.delay-4{animation-delay:.4s}
+.delay-5{animation-delay:.5s}
+.delay-6{animation-delay:.6s}
+.delay-7{animation-delay:.7s}
+.delay-8{animation-delay:.8s}
+
+/* Ann bar slides down */
+.ann-bar{animation:fadeInDown .5s ease both}
+/* Nav fades in */
+nav{animation:fadeInDown .6s .1s ease both}
+/* Hero content staggers up */
+.hero-tag{animation:fadeInUp .7s .3s ease both}
+.hero-title{animation:fadeInUp .8s .45s ease both}
+.hero-sub{animation:fadeInUp .8s .6s ease both}
+.hero-form{animation:fadeInUp .8s .75s ease both}
+.hero-disclaimer{animation:fadeIn .8s .9s ease both}
+.hero-stars-row{animation:fadeIn .8s 1s ease both}
+/* Awards strip */
+.awards-strip{animation:fadeIn .8s .2s ease both}
+/* Seen strip */
+.seen-strip{animation:fadeIn .6s ease both}
+/* Stat boxes stagger */
+/* stat boxes use reveal class instead */
+/* Service cards stagger on scroll via reveal class — extra pop */
+.svc-card:hover{transform:translateY(-4px);transition:transform .25s,background .2s}
+/* Offer cards */
+.offer-card{animation:fadeIn .5s ease both}
+/* Team cards */
+.team-card{transition:border-color .2s,transform .25s,box-shadow .25s}
+.team-card:hover{box-shadow:0 12px 40px rgba(26,111,255,.2)}
+/* CS cards */
+.cs-card{transition:transform .25s,box-shadow .25s}
+.cs-card:hover{box-shadow:0 12px 40px rgba(26,111,255,.25)}
+/* Footer fade */
+footer{animation:fadeIn .6s ease both}
+
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<!--<div class="ann-bar">
+  🔥 50+ brands transformed — <a href="#contact">See if you qualify for a free strategy call</a>
+</div>-->
+
+<!-- NAV -->
+<nav id="navbar">
+  <!--
+  ╔══════════════════════════════════════════════════╗
+  ║  DEVELOPER: LOGO IMAGE — UPLOAD HERE              ║
+  ╠══════════════════════════════════════════════════╣
+  ║  1. Place your logo file in the assets/ folder    ║
+  ║  2. Replace  YOUR-LOGO-FILE.png  with filename    ║
+  ║  3. Adjust height (default: 40px) as needed       ║
+  ║  4. The <a href="/"> makes the logo clickable     ║
+  ║     and returns user to homepage on click         ║
+  ║  Recommended: PNG with transparent background     ║
+  ║  Height: 36–48px works best in the navbar         ║
+  ╚══════════════════════════════════════════════════╝
+  -->
+  <a href="/" class="nav-logo" aria-label="Glonetech Solutions — Home">
+    <img
+      src="./assets/logow4.png"
+      alt="Glonetech Solutions"
+      style="height:60px;width:auto;display:block"
+      onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+    >
+    <!-- Fallback text logo shown if image file is missing -->
+    <span class="nav-logo-fallback" style="display:none">GLONE<span style="color:var(--accent)">TECH</span>®</span>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#testimonials">Results</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+  <!-- DEVELOPER: Update phone number below -->
+  <a href="https://wa.me/+2348066998374" class="nav-phone">+234 806 699 8374</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#work" onclick="closeMob()">Work</a>
+  <a href="#testimonials" onclick="closeMob()">Results</a>
+  <a href="#process" onclick="closeMob()">Process</a>
+  <a href="#contact" onclick="closeMob()">Get Started →</a>
+</div>
+
+<!-- ════════════════════════════ HERO ════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg">
+    <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║  DEVELOPER: HERO BACKGROUND VIDEO — UPLOAD HERE      ║
+    ╠══════════════════════════════════════════════════════╣
+    ║  1. Place your video file in the assets/ folder      ║
+    ║  2. Replace  YOUR-VIDEO-FILE.mp4  with the filename  ║
+    ║  3. Replace  YOUR-POSTER-IMAGE.jpg  with a still     ║
+    ║     frame from the video (shown before video loads)  ║
+    ║                                                      ║
+    ║  Video specs: MP4/H.264 · 1920×1080+ · <10MB         ║
+    ║  Poster: JPG · 1920×1080 · same frame as video       ║
+    ╚══════════════════════════════════════════════════════╝
+    -->
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/assets/pexels-chuck-2744982.jpg"
+      style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0"
+    >
+      <source src="video/WEBSITE_1.webm" type="video/webm">
+      <!-- Fallback if video not supported or file missing -->
+      <div class="hero-bg-placeholder"></div>
+    </video>
+  </div>
+  <div class="hero-content">
+    <!--<div class="hero-tag">Africa's #1 Media & Creative Agency</div>-->
+    <h1 class="hero-title">
+      Like Rocket Fuel<br>
+      <em>For Your Brand</em>
+    </h1>
+    <p class="hero-sub">
+      Growing a brand is hard. We make it a whole lot easier, more predictable, less stressful and a whole lot more profitable.
+    </p>
+    <div class="hero-form">
+      <input type="email" id="heroEmail" placeholder="Enter your email and let's talk…" autocomplete="email">
+      <button onclick="heroGo()">Let's Go →</button>
+    </div>
+    <p class="hero-disclaimer">*Are you ready to scale?</p>
+    <div class="hero-stars-row">
+      <span class="stars"></span>
+      <span>★50+ happy clients★</span>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS STRIP -->
+<!--
+DEVELOPER: Replace .award-item spans with actual award logo <img> tags.
+Each img should have: height:36px; opacity:.5; filter:grayscale(1)
+Duplicate the entire inner div for a seamless infinite scroll loop.
+-->
+
+
+<!--sliding carousel-->
+<section class="sp-section">
+
+  <div class="sp-track">
+
+    <!-- Repeat cards twice for seamless loop -->
+
+    <div class="sp-card"><img src="./Graphics/1.png"></div>
+    <!--<div class="sp-card"><img src="./Graphics/ALL-STARS @4x.png"></div>-->
+    <div class="sp-card"><img src="./Graphics/Magazine.png"></div>
+    <div class="sp-card"><img src="./Graphics/Starting.png"></div>
+    <div class="sp-card"><img src="./Graphics/2.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/2.png"></div>
+    <div class="sp-card"><img src="./Graphics/2 (2).jpg"></div>
+    <div class="sp-card"><img src="./Graphics/3.png"></div>
+    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/Blood-port.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/Ara.jpg"></div>
+    
+
+    <div class="sp-card"><img src="./Graphics/1.png"></div>
+    <!--<div class="sp-card"><img src="./Graphics/ALL-STARS @4x.png"></div>-->
+    <div class="sp-card"><img src="./Graphics/Magazine.png"></div>
+    <div class="sp-card"><img src="./Graphics/Starting.png"></div>
+    <div class="sp-card"><img src="./Graphics/2.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/2.png"></div>
+    <div class="sp-card"><img src="./Graphics/2 (2).jpg"></div>
+    <div class="sp-card"><img src="./Graphics/3.png"></div>
+    <div class="sp-card"><img src="./Graphics/Artboard 4.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/Blood-port.jpg"></div>
+    <div class="sp-card"><img src="./Graphics/Ara.jpg"></div>
+
+  </div>
+
+  <!-- Fade edges -->
+  <div class="fade-left"></div>
+  <div class="fade-right"></div>
+
+</section>
+
+<!-- Modal -->
+<div class="sp-modal" id="spModal">
+  <span class="sp-close">&times;</span>
+  <img id="modalImage">
+</div>
+
+
+<!-- ═══════════════════ LONG-FORM LETTER ═══════════════════ -->
+<section id="letter">
+  <div class="letter-wrap reveal">
+    <p class="letter-date">Updated: August 2026</p>
+    <p class="letter-salutation">Dear ambitious business owner,</p>
+    <div class="letter-body">
+      <p>We get it.</p>
+      <p>Building a brand in today's noisy, crowded marketplace is <strong>hard. Really really hard.</strong></p>
+      <p>You're putting in 14-hour days. You're posting content and hearing absolute crickets. You're watching competitors with lesser products get all the attention while your incredible work goes completely unnoticed.</p>
+      <p>You've probably been told to "just post more content"…</p>
+      <p>Or "run some Facebook ads"…</p>
+      <p>Or "hire a content creator"…</p>
+      <p>Somebody's definitely told you to "build a personal brand on LinkedIn".</p>
+      <p class="big">Meanwhile your brand still looks amateur, your videos get 47 views, and your competitors are eating your lunch.</p>
+      <p>Sound familiar?</p>
+      <p>Here's the brutal truth nobody tells you: <strong>the brands winning right now are not the ones with the best products.</strong></p>
+      <p>They're the ones who look the best, sound the best, and tell <em>the most compelling story.</em></p>
+      <p>That's exactly where <strong>Glonetech Solutions</strong> comes in.</p>
+      <p>We're not a typical "post three times a week and hope for the best" agency. We're a full-spectrum media and creative powerhouse that builds brands from the ground up: strategy, video production, design, photography, social media, PR, and everything in between.</p>
+      <p>We've worked with <strong>50+ businesses across the world</strong>, delivered <strong>100+ projects</strong>, and helped brands transform from invisible to impossible-to-ignore in record time.</p>
+      <p class="big">And we want to do exactly that for you.</p>
+      <p>But first, <br/>you need to choose your path below…</p>
+    </div>
+    <a href="#contact" class="btn-main">Book My Free Strategy Call →</a>
+  </div>
+</section>
+
+
+<!--video carousel-->
+<!--video carousel-->
+<section class="video-carousel-section">
+  <div class="video-carousel-container">
+
+    <h2 class="video-carousel-title">Our Work In Motion</h2>
+    <div class="video-carousel-line"></div>
+
+    <div class="video-carousel-wrapper">
+      <div class="video-carousel-track" id="videoTrack">
+
+        <!-- VIDEO 1 — replace VIDEO_ID with your YouTube video ID -->
+        <!--<div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/zB2RxDIzHNU?autoplay=1&mute=1&loop=1&playlist=zB2RxDIzHNU&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>-->
+
+        <!-- VIDEO 2 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/-3bsJvXV3Mc?autoplay=1&mute=1&loop=1&playlist=-3bsJvXV3Mc&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/SJFiHoHgnEI?autoplay=1&mute=1&loop=1&playlist=SJFiHoHgnEI&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 4 -->
+        <!--<div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/84KSum1J3UM?autoplay=1&mute=1&loop=1&playlist=84KSum1J3UM&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>-->
+
+        <!-- VIDEO 5 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/syuAcPB2NkY?autoplay=1&mute=1&loop=1&playlist=syuAcPB2NkY&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 6 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/FoZhP55Ciuc?autoplay=1&mute=1&loop=1&playlist=FoZhP55Ciuc&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 7 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/1wUgn6vE-2g?autoplay=1&mute=1&loop=1&playlist=1wUgn6vE-2g&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 8 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/QC8pGO5lCw8?autoplay=1&mute=1&loop=1&playlist=QC8pGO5lCw8&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 9 -->
+        <!--<div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/snUiCCb0I3k?autoplay=1&mute=1&loop=1&playlist=snUiCCb0I3k&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>-->
+
+        <!-- VIDEO 10 -->
+        <!--<div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/bFZCVAFsk6A?autoplay=1&mute=1&loop=1&playlist=bFZCVAFsk6A&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>-->
+
+
+        <!-- VIDEO 11 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/73Ewl1O858A?autoplay=1&mute=1&loop=1&playlist=73Ewl1O858A&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 12 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/xLMKlyRQrlg?autoplay=1&mute=1&loop=1&playlist=xLMKlyRQrlg&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 13 -->
+        <!--<div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/ZsK21e6wnaI?autoplay=1&mute=1&loop=1&playlist=ZsK21e6wnaI&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>-->
+
+        <!-- VIDEO 14 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/y9hwNBp0dFM?autoplay=1&mute=1&loop=1&playlist=y9hwNBp0dFM&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 15 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/CcHaQA5bU_o?autoplay=1&mute=1&loop=1&playlist=CcHaQA5bU_o&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- VIDEO 16 -->
+        <div class="video-item">
+          <div class="video-iframe-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/DdmjFDwIS-0?autoplay=1&mute=1&loop=1&playlist=DdmjFDwIS-0&controls=0&modestbranding=1&rel=0&playsinline=1"
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-controls">
+            <button type="button" class="sound-toggle" data-muted="true">🔇</button>
+          </div>
+        </div>
+
+        <!-- Repeat the block above for each of your videos -->
+        <!-- Just swap out VIDEO_ID each time -->
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- ══════════════════════ OFFERING ══════════════════════ -->
+<section id="offering">
+  <p class="sec-label">Our Offering</p>
+  <h2 class="sec-title">Choose Your Path</h2>
+  <div class="offer-grid reveal">
+    <div class="offer-card">
+      <div class="offer-tag">Done For You</div>
+      <h3 class="offer-name">Full-Service Agency</h3>
+      <p>Managed, done-for-you media and creative services for businesses ready to go all-in on growth. We handle everything strategy, production, content, and distribution. You focus on your business; we dominate your market.</p>
+      <div class="offer-stars"><span class="stars"></span><span>★50+ clients served</span></div>
+      <a href="#contact" class="offer-btn">Get Started →</a>
+    </div>
+    <div class="offer-card">
+      <div class="offer-tag">Project Based</div>
+      <h3 class="offer-name">Standalone Projects</h3>
+      <p>Need a specific deliverable? Brand identity, video production, campaign content, photography, or event coverage. We execute every standalone project with the same obsessive quality as our retained clients.</p>
+      <div class="offer-stars"><span class="stars"></span><span>★100+ projects delivered</span></div>
+      <a href="#contact" class="offer-btn">Get Started →</a>
+    </div>
+    <div class="offer-card">
+      <div class="offer-tag">Strategy Only</div>
+      <h3 class="offer-name">Brand Strategy Session</h3>
+      <p>Not sure where to start? Book a strategy session with our creative directors and walk away with a clear, actionable roadmap to make your brand the most recognized name in your space. Free for qualified businesses.</p>
+      <div class="offer-stars"><span class="stars"></span><span>★Free for qualified brands</span></div>
+      <a href="#contact" class="offer-btn">Get Started →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<div class="seen-strip">
+  <p class="seen-label">Brands We've Worked With</p>
+  <!--
+  DEVELOPER: CLIENT LOGO STRIP
+  Replace each .logo-ph span with:
+  <img src="assets/client-[name].png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(2)">
+  Duplicate the inner group for seamless scroll loop.
+  -->
+  <div class="seen-logos">
+    <div class="seen-track">
+      <img src="logos/pj.png" alt="[Client Name]" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/move.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/heroes.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/rccg.PNG" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redeem.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redef.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/resobridge.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/genzeal.png" alt="[Client Name]" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/srat.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/campus.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/bmf.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN_-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/Bloom.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN2-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <!-- Duplicate for seamless loop -->
+      <img src="logos/pj.png" alt="[Client Name]" style="height:130px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/move.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/heroes.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/rccg.PNG" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redeem.png" alt="[Client Name]" style="height:30px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/redef.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/resobridge.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/genzeal.png" alt="[Client Name]" style="height:100px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/srat.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/campus.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/bmf.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN_-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/Bloom.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+      <img src="logos/CIMUN2-removebg-preview.png" alt="[Client Name]" style="height:60px;opacity:.35;filter:grayscale(1) brightness(10)">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ STATS ══════════════════════ -->
+<section id="stats">
+  <h2 class="stats-hl reveal">We Let Our Numbers Do The Talking</h2>
+  <div class="stats-grid reveal">
+    <div class="stat-box">
+      <div class="stat-num" data-target="50">0<span>+</span></div>
+      <p class="stat-desc">Clients served across the world</p>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num" data-target="100">0<span>+</span></div>
+      <p class="stat-desc">Creative projects successfully delivered</p>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">200<span>k+</span></div>
+      <p class="stat-desc">Total organic impressions generated for clients</p>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">90<span>%</span></div>
+      <p class="stat-desc">Client satisfaction and retention rate</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CASE STUDIES ══════════════════════ -->
+<section id="work">
+  <p class="sec-label reveal">Case Studies</p>
+  <h2 class="sec-title reveal">Become Our Next<br>Success Story</h2>
+
+  <!--
+  ╔══════════════════════════════════════════════════╗
+  ║  DEVELOPER: CASE STUDY IMAGES                     ║
+  ╠══════════════════════════════════════════════════╣
+  ║  For each .cs-card below:                         ║
+  ║  1. Add inline style with your project image:     ║
+  ║     style="background-image:url('assets/         ║
+  ║            project-clientname.jpg')"              ║
+  ║  2. Update .cs-client with real client name       ║
+  ║  3. Update .cs-result with real result headline   ║
+  ║                                                  ║
+  ║  Recommended image size: 782×1036px (portrait)   ║
+  ║  Dark, rich, high-contrast images work best       ║
+  ╚══════════════════════════════════════════════════╝
+  -->
+  <div class="cs-grid reveal">
+    <div class="cs-card" style="background-image:url('Graphics/1.0.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>
+    <div class="cs-card" style="background-image:url('Graphics/2.0.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>
+    <div class="cs-card" style="background-image:url('Graphics/3.0.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>
+    <div class="cs-card" style="background-image:url('Graphics/4.0.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>
+    <!--<div class="cs-card" style="background-image:url('assets/ran.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>-->
+    <!--<div class="cs-card" style="background-image:url('assets/ran.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>-->
+    <!--<div class="cs-card" style="background-image:url('assets/ran.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>-->
+    <!--<div class="cs-card" style="background-image:url('assets/ran.jpg')">
+      <div class="cs-card-info">
+        <div class="cs-client">CLIENT NAME</div>
+        <div class="cs-result">Result or Project<br>Headline Here</div>
+      </div>
+    </div>-->
+  </div>
+
+  <div style="text-align:center">
+    <a href="#contact" class="btn-main">See If You Qualify →</a>
+  </div>
+</section>
+
+<!-- ══════════════════════ PLATFORM ══════════════════════ -->
+<section id="platform">
+  <div class="platform-inner reveal">
+    <p class="sec-label">Built For Scale</p>
+    <h2 class="platform-title">The Most Ruthlessly Effective Creative Platform For Rapidly Scaling Brands In Nigeria</h2>
+    <p class="platform-sub">There are a lot of so-called "agencies" roaming around the world wide web today. Most of these people are all talk, no results. Marketers lie, but work doesn't. And we have 100+ projects and 50+ satisfied clients to prove it.</p>
+
+    <!--
+    DEVELOPER: SHOWREEL / FEATURE IMAGE
+    Replace this .platform-ph div with your actual content:
+
+    Option A — Static image:
+    <img src="assets/agency-at-work.jpg" alt="Glonetech team" style="width:100%;border-radius:8px;border:1px solid var(--border)">
+
+    Option B — YouTube embed:
+    <div style="position:relative;padding-bottom:56.25%;border-radius:8px;overflow:hidden;border:1px solid var(--border)">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&autoplay=0"
+        style="position:absolute;inset:0;width:100%;height:100%"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    Option C — Self-hosted video with play-to-modal:
+    <div class="cs-card" style="aspect-ratio:16/9;background-image:url('assets/showreel-poster.jpg')"
+         data-video="assets/showreel.mp4" onclick="openModal(this.dataset.video)">
+      <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+    </div>
+    -->
+    <div class="cs-card" style="aspect-ratio:16/9;background-image:url('assets/pexels-cottonbro-3692625.jpg')"
+         data-video="video/v.mp4" onclick="openModal(this.dataset.video)">
+      <div class="play-btn" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+    </div>
+
+    <a href="#contact" class="btn-main">Click The Button Already →</a>
+    <p style="font-family:var(--font-head);font-size:12px;color:var(--muted);margin-top:1rem;font-style:italic">4.9 stars from 50+ verified clients</p>
+  </div>
+</section>
+
+<!-- ════════════════════ VIDEO TESTIMONIALS ════════════════════ -->
+<section id="testimonials">
+  <p class="sec-label reveal">Client Results</p>
+  <h2 class="sec-title reveal">Real People.<br>Real Results.</h2>
+
+  <!--
+  ╔════════════════════════════════════════════════════╗
+  ║  DEVELOPER: VIDEO TESTIMONIAL CARDS                ║
+  ╠════════════════════════════════════════════════════╣
+  ║  For each .testi-card:                             ║
+  ║                                                    ║
+  ║  1. VIDEO: Set data-video="assets/testi-name.mp4"  ║
+  ║     on the .testi-card div. Clicking the card      ║
+  ║     will open it in the video modal automatically. ║
+  ║     Or use a YouTube URL:                          ║
+  ║     data-video="https://youtube.com/embed/ID?autoplay=1" ║
+  ║                                                    ║
+  ║  2. THUMBNAIL: Add inline style to .testi-thumb:   ║
+  ║     style="background-image:url('assets/           ║
+  ║            thumb-clientname.jpg')"                 ║
+  ║     Remove the .thumb-ph div once image is added   ║
+  ║                                                    ║
+  ║  3. CLIENT LOGO: Replace .logo-ph-t text with:     ║
+  ║     <img src="assets/logo-client.png"              ║
+  ║          style="height:26px;opacity:.8">           ║
+  ║                                                    ║
+  ║  4. Update .testi-quote and .testi-author text     ║
+  ╚════════════════════════════════════════════════════╝
+  -->
+
+  <div class="testi-list reveal">
+
+    <div class="testi-card" data-video="video/v.mp4">
+      <!-- DEVELOPER: data-video="assets/testimonial-client1.mp4" -->
+      <div class="testi-inner">
+        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
+          <!-- DEVELOPER: style="background-image:url('assets/thumb-client1.jpg')" -->
+          <div class="play-btn"></div>
+        </div>
+        <div class="testi-info">
+          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
+          <p class="testi-quote">"Working with Glonetech completely transformed how people perceive our brand. Within 60 days, our engagement tripled and our inbound inquiries skyrocketed. Best investment we've ever made in marketing."</p>
+          <p class="testi-author">— Client Name, CEO, Company Name</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card" data-video="video/r.mp4">
+      <!-- DEVELOPER: data-video="assets/testimonial-client2.mp4" -->
+      <div class="testi-inner">
+        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
+          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
+          <div class="play-btn"></div>
+        </div>
+        <div class="testi-info">
+          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
+          <p class="testi-quote">"We hired three agencies before Glonetech. None delivered. Glonetech is completely different — they think strategically and their creative quality is simply world-class. Our social following has grown 300% since day one."</p>
+          <p class="testi-author">— Client Name, Founder, Company Name</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card" data-video="video/v.mp4">
+      <!-- DEVELOPER: data-video="assets/testimonial-client3.mp4" -->
+      <div class="testi-inner">
+        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
+          <div class="play-btn"></div>
+        </div>
+        <div class="testi-info">
+          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
+          <p class="testi-quote">"Our product launch was flawless from start to finish. The photography, video content, and social strategy all exceeded our expectations dramatically. We've never looked this professional — and our sales are reflecting it."</p>
+          <p class="testi-author">— Client Name, CMO, Company Name</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card" data-video="video/r.mp4">
+      <!-- DEVELOPER: data-video="assets/testimonial-client4.mp4" -->
+      <div class="testi-inner">
+        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
+          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
+          <div class="play-btn"></div>
+        </div>
+        <div class="testi-info">
+          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
+          <p class="testi-quote">"From the very first meeting, I knew this team was different. They treat your brand like it's their own. The growth we've experienced since partnering with Glonetech has been nothing short of extraordinary."</p>
+          <p class="testi-author">— Client Name, Director, Company Name</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testi-card" data-video="video/v.mp4">
+      <!-- DEVELOPER: data-video="assets/testimonial-client5.mp4" -->
+      <div class="testi-inner">
+        <div class="testi-thumb" style="background-image:url('assets/pexels-cottonbro-3692625.jpg')">
+          <div class="thumb-ph">DEVELOPER:<br>Add thumbnail</div>
+          <div class="play-btn"></div>
+        </div>
+        <div class="testi-info">
+          <div class="logo-ph-t"><img src="assets/logow.png" style="height:26px;opacity:.8"></div>
+          <p class="testi-quote">"I was skeptical — I've been burned by agencies before. But Glonetech's results speak for themselves. Our brand awareness has grown astronomically and the ROI is completely undeniable. I'd never go back."</p>
+          <p class="testi-author">— Client Name, Founder, Company Name</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════ ABOUT ════════════════════ -->
+<section id="about">
+  <div class="about-grid reveal">
+    <div class="about-img">
+      <!--
+      DEVELOPER: FOUNDER / ABOUT PHOTO
+      Replace this .about-ph div with:
+      <img src="assets/founder.jpg" alt="Glonetech Solutions Founder"
+           style="width:100%;height:auto;display:block">
+
+      Options:
+      - Founder headshot (professional, well-lit)
+      - Team group photo at the studio/office
+      - Behind-the-scenes production shot
+      Recommended: Portrait orientation, high quality
+      -->
+      <img src="Team/Group.webp" alt="Glonetech Solutions Founder"
+           style="width:100%;height:auto;display:block">
+    </div>
+    <div class="about-content">
+      <p class="sec-label" style="text-align:left">Our Story</p>
+      <h2 class="sec-title" style="text-align:left;font-size:clamp(1.8rem,3vw,3rem);margin-bottom:1.5rem">We Made The System For Making Brands Impossible To Ignore</h2>
+      <p>Glonetech Solutions was built on one conviction: <strong>every great business deserves great creative.</strong> Too many incredible brands are losing to competitors who simply look and sound better.</p>
+      <p>We exist to close that gap. With <strong>1+ year of relentless execution</strong>, 50+ brands served, and 100+ projects delivered, we've built a reputation for work that doesn't just look good, it <em>actually works.</em></p>
+      <p>Our team of strategists, filmmakers, designers, and storytellers brings the same obsessive attention to craft to every single project, whether you're a startup launching your first brand or an established company ready to dominate your category.</p>
+      <div class="about-stars">
+        <span class="stars"></span>
+        <span>★50+ verified clients★</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section id="services">
+  <p class="sec-label reveal">What We Do</p>
+  <h2 class="sec-title reveal">Everything Your Brand Needs<br>To Absolutely Dominate</h2>
+  <div class="svc-grid reveal">
+    <div class="svc-card">
+      <div class="svc-n">01</div>
+      <div class="svc-icon">🎬</div>
+      <div class="svc-name">Video Production</div>
+      <p class="svc-desc">Brand films, social reels, TV commercials, event coverage, product demos, and testimonial videos that stop the scroll and compel action.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">02</div>
+      <div class="svc-icon">🎨</div>
+      <div class="svc-name">Brand Identity Design</div>
+      <p class="svc-desc">Logo, full visual identity systems, brand guidelines, and design assets that make you look world-class and consistent at every single touchpoint.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">03</div>
+      <div class="svc-icon">📱</div>
+      <div class="svc-name">Social Media Management</div>
+      <p class="svc-desc">Strategy, content creation, community management, and growth across Instagram, TikTok, X, LinkedIn, YouTube, and Facebook.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">04</div>
+      <div class="svc-icon">📸</div>
+      <div class="svc-name">Photography</div>
+      <p class="svc-desc">Commercial photography, product shoots, event coverage, portrait sessions, and editorial imagery that tells your brand story beautifully.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">05</div>
+      <div class="svc-icon">📣</div>
+      <div class="svc-name">PR & Communications</div>
+      <p class="svc-desc">Strategic press releases, media relations, crisis communication, and brand messaging that builds lasting credibility and shapes public perception.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">06</div>
+      <div class="svc-icon">🚀</div>
+      <div class="svc-name">Digital Marketing</div>
+      <p class="svc-desc">Performance campaigns, SEO content, paid ads, email marketing, and reporting dashboards built to maximize every single penny you invest in growth.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">07</div>
+      <div class="svc-icon">✂️</div>
+      <div class="svc-name">Video Editing</div>
+      <p class="svc-desc">Professional post-production editing, color grading, sound design, motion titles, and multi-format exports optimized for every platform and screen.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">08</div>
+      <div class="svc-icon">🖌️</div>
+      <div class="svc-name">Graphics Design</div>
+      <p class="svc-desc">Social media graphics, flyers, banners, infographics, packaging, and print materials designed to stop the scroll and command attention.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">09</div>
+      <div class="svc-icon">🧊</div>
+      <div class="svc-name">3D Modelling & Animation</div>
+      <p class="svc-desc">Photorealistic 3D product renders, architectural visualizations, character models, and full 3D animations that make your brand unforgettable.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">10</div>
+      <div class="svc-icon">🎞️</div>
+      <div class="svc-name">Motion Graphics</div>
+      <p class="svc-desc">Animated logos, kinetic typography, explainer animations, broadcast graphics, and motion design that brings your brand story to life on screen.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">11</div>
+      <div class="svc-icon">🎙️</div>
+      <div class="svc-name">Podcast Production</div>
+      <p class="svc-desc">End-to-end podcast setup, recording, editing, cover art, and multi-platform distribution, turning your voice into a powerful brand-building tool.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">12</div>
+      <div class="svc-icon">🚀</div>
+      <div class="svc-name">Content Marketing</div>
+      <p class="svc-desc">Expressing your brand through content re-strategized to bring in sales .</p>
+    </div>
+    <!--<div class="svc-card">
+      <div class="svc-n">12</div>
+      <div class="svc-icon">🌐</div>
+      <div class="svc-name">Web Design & Development</div>
+      <p class="svc-desc">High-converting landing pages, full websites, and e-commerce stores designed to look stunning, load fast, and turn visitors into paying customers.</p>
+    </div>-->
+  </div>
+</section>
+
+<!-- ════════════════════ TEAM ════════════════════ -->
+<section id="team">
+  <p class="sec-label reveal">The Humans</p>
+  <h2 class="sec-title reveal">Meet The Team<br>Behind Your Growth</h2>
+  <!--
+  DEVELOPER: TEAM PHOTOS
+  For each .team-photo div, add the team member's photo as inline style:
+  style="background-image:url('assets/team-firstname.jpg')"
+  Remove the .team-ph div once the image is in place.
+  Recommended: Portrait photos, consistent style/background
+  -->
+  <div class="team-grid reveal">
+    <div class="team-card">
+      <div class="team-photo" style="background-image:url('Team/Prince2.jpg')">
+        <!--<div class="team-ph">GT</div>-->
+      </div>
+      <div class="team-info">
+        <div class="team-name">Joseph Prince <!-- DEVELOPER: Real name --></div>
+        <div class="team-role">CEO</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo" style="background-image:url('Team/saka1.webp')">
+        <!--<div class="team-ph">GT</div>-->
+      </div>
+      <div class="team-info">
+        <div class="team-name">Saka Oladipupo<!-- DEVELOPER: Real name --></div>
+        <div class="team-role">COO</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo" style="background-image:url('Team/smk1.webp')">
+        <!--<div class="team-ph">GT</div>-->
+      </div>
+      <div class="team-info">
+        <div class="team-name">Oni Ayomide</div>
+        <div class="team-role">Head of Video</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo" style="background-image:url('Team/Precious1.webp')">
+        <!--<div class="team-ph">GT</div>-->
+      </div>
+      <div class="team-info">
+        <div class="team-name">Ohiomah Precious</div>
+        <div class="team-role">Lead Animator</div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo" style="background-image:url('Team/Praisee.jpg')">
+      </div>
+      <div class="team-info">
+        <div class="team-name">David Praise</div>
+        <div class="team-role">Lead Designer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PROCESS ════════════════════ -->
+<section id="process">
+  <p class="sec-label reveal">How It Works</p>
+  <h2 class="sec-title reveal">Our Proven 4-Step Process<br>For Brand Dominance</h2>
+  <div class="proc-steps reveal">
+    <div class="proc-step">
+      <div class="proc-circle">01</div>
+      <div class="proc-name">Discovery</div>
+      <p class="proc-desc">We deep-dive into your brand, market, competitors, and goals to find what makes you genuinely unique and valuable to your audience.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">02</div>
+      <div class="proc-name">Strategy</div>
+      <p class="proc-desc">We build a custom creative and media strategy around your specific business objectives, timeline, and budget, no templates.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">03</div>
+      <div class="proc-name">Creation</div>
+      <p class="proc-desc">Our team of creatives, producers, and designers crafts every asset with obsessive attention to quality and strategic purpose.</p>
+    </div>
+    <div class="proc-step">
+      <div class="proc-circle">04</div>
+      <div class="proc-name">Launch & Scale</div>
+      <p class="proc-desc">We deploy, track performance in real-time, and optimize relentlessly until your brand is everywhere your audience needs to see it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ BIG CTA ════════════════════ -->
+<section id="cta">
+  <div class="cta-inner reveal">
+    <h2 class="cta-title">Ready To Make<br>Your Brand<br>Unstoppable?</h2>
+    <p class="cta-sub">Skip the guesswork, the wasted spend, and the inconsistent content that goes nowhere. Let's build something that genuinely moves the needle.</p>
+    <a href="#contact" class="cta-btn">Hit The Button Now →</a>
+    <div class="cta-stars-wrap">
+      <span class="stars">★★★★★</span>
+      <span>4.9 stars from 50+ verified clients</span>
+    </div>
+    <p class="cta-note">*No commitment required. Just a straight, honest conversation about your brand's potential.</p>
+  </div>
+</section>
+
+<!-- ════════════════════ CONTACT FORM ════════════════════ -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="sec-label" style="text-align:left">Let's Talk</p>
+      <h2 class="sec-title" style="text-align:left;font-size:clamp(2rem,3.5vw,3.5rem);margin-bottom:1.5rem">Book Your Free<br>Strategy Session</h2>
+      <p>Fill out the form and one of our strategists will reach out within 24 hours to set up your free, no-obligation consultation.</p>
+      <p>We'll show you exactly what it would take to make your brand the most recognized in your space.</p>
+      <!-- DEVELOPER: Update contact details below -->
+      <div class="c-det">
+        <div class="c-icon">📍</div>
+        <div>
+          <div class="c-lbl">Location</div>
+          <div class="c-val">Abuja, FCT, Nigeria</div>
+        </div>
+      </div>
+      <div class="c-det">
+        <div class="c-icon">✉️</div>
+        <div>
+          <div class="c-lbl">Email</div>
+          <div class="c-val"><a href="mailto:glonetechsolutions@gmail.com" class="__cf_email__" data-cfemail="81e9e4ededeec1e6edeeefe4f5e4e2e9afe2eeec">glonetechsolutions@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="c-det">
+        <div class="c-icon">📞</div>
+        <div>
+          <div class="c-lbl">Phone</div>
+          <div class="c-val">+234 (0) 806 699 8374   ,  +234 (0) 806 699 8374</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="c-form">
+        <div class="f-row">
+          <div class="f-grp">
+            <label class="f-lbl">First Name</label>
+            <input type="text" class="f-in" placeholder="John">
+          </div>
+          <div class="f-grp">
+            <label class="f-lbl">Last Name</label>
+            <input type="text" class="f-in" placeholder="Doe">
+          </div>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl">Business Email</label>
+          <input type="email" class="f-in" placeholder="you@company.com">
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl">Phone Number</label>
+          <input type="tel" class="f-in" placeholder="+234 000 000 0000">
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl">Service You're Interested In</label>
+          <select class="f-sel">
+            <option value="" disabled selected>Select a service…</option>
+            <option>Brand Identity Design</option>
+            <option>Video Production</option>
+            <option>Social Media Management</option>
+            <option>Photography</option>
+            <option>PR & Communications</option>
+            <option>Digital Marketing</option>
+            <option>Full-Service Package</option>
+            <option>Strategy Session Only</option>
+            <option>Graphics Design</option>
+            <option>Video editig</option>
+            <option>3D Modelling & Animation</option>
+            <option>Motion graohics(explainer videos e.t.c)</option>
+          </select>
+        </div>
+        <div class="f-grp">
+          <label class="f-lbl">Tell Us About Your Brand</label>
+          <textarea class="f-ta" placeholder="What does your business do? What are you trying to achieve? What's your timeline and rough budget?"></textarea>
+        </div>
+        <button class="f-submit" onclick="sendForm(event)">
+          Book My Free Strategy Call →
+        </button>
+        <p class="f-note">We respect your privacy. Your information is never sold or spammed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <!--
+      DEVELOPER: FOOTER LOGO
+      Replace src with your logo file. Same file as nav logo.
+      White/light version of the logo works best on dark background.
+      -->
+      <a href="/" aria-label="Glonetech Solutions">
+        <img
+          src="assets/logow4.png"
+          alt="Glonetech Solutions"
+          style="height:100px;width:auto;margin-bottom:1rem;display:block"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        >
+        <div class="f-logo" style="display:none">GLONE<span>TECH</span>®</div>
+      </a>
+      <p>Glonetech Solutions is Nigeria's leading media & creative agency. We build brands that dominate their market, command attention, and convert audiences into loyal customers.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Brand Identity</a></li>
+        <li><a href="#services">Video Production</a></li>
+        <li><a href="#services">Social Media</a></li>
+        <li><a href="#services">Photography</a></li>
+        <li><a href="#services">PR & Comms</a></li>
+        <li><a href="#services">Digital Marketing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#work">Our Work</a></li>
+        <li><a href="#testimonials">Results</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <!-- DEVELOPER: Update all links/details below -->
+        <li><a href="#contact">Book a Call</a></li>
+        <li><a href="mailto:glonetechsolutions@gmail.com" class="__cf_email__" data-cfemail="81e9e4ededeec1e6edeeefe4f5e4e2e9afe2eeec">glonetechsolutions@gmail.com</a></li>
+        <li><a href="https://wa.me/+2348066998374">+234 806 699 8374</a></li>
+        <li><a href="#">Abuja, Nigeria</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Glonetech Solutions®. All rights reserved.</p>
+    <div class="socials">
+      <!-- DEVELOPER: Update social media href links -->
+      <a href="https://www.bing.com/ck/a?!&&p=f6a762bd56dce3f4902777d5b431da5fb7525766bb38d56163d3983d3e06ef8fJmltdHM9MTc3MzAxNDQwMA&ptn=3&ver=2&hsh=4&fclid=3ab5f8e3-5484-6ae4-3eed-ec02553d6b18&psq=glonetech+solutions&u=a1aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9nbG9uZXRlY2hzb2x1dGlvbnMv" class="soc" aria-label="Instagram">IG</a>
+      <a href="#" class="soc" aria-label="Twitter/X">𝕏</a>
+      <a href="https://www.bing.com/ck/a?!&&p=e056dc87cacd7aabc7aa717b2795a41ff2e0a93d58f38db9aedd9fe811b42eebJmltdHM9MTc3MzAxNDQwMA&ptn=3&ver=2&hsh=4&fclid=3ab5f8e3-5484-6ae4-3eed-ec02553d6b18&psq=glonetech+solutions+tiktok&u=a1aHR0cHM6Ly9uZy5saW5rZWRpbi5jb20vY29tcGFueS9nbG9uZXRlY2hzb2x1dGlvbnM" class="soc" aria-label="LinkedIn">in</a>
+      <a href="https://www.bing.com/ck/a?!&&p=22cb0932e8c3df67e557fbebf62da34b9e1682132b60d5b48013078266f85352JmltdHM9MTc3MzAxNDQwMA&ptn=3&ver=2&hsh=4&fclid=3ab5f8e3-5484-6ae4-3eed-ec02553d6b18&psq=glonetech+solutions+tiktok&u=a1aHR0cHM6Ly93d3cueW91dHViZS5jb20vQEdMT05FVEVDSFNPTFVUSU9OUw" class="soc" aria-label="YouTube">▶</a>
+      <a href="https://www.tiktok.com/@glonetechsolutions" class="soc" aria-label="TikTok">TK</a>
+    </div>
+    <p><a href="#" style="color:var(--muted)">Privacy Policy</a> · <a href="#" style="color:var(--muted)">Terms</a></p>
+  </div>
+</footer>
+
+<!-- VIDEO MODAL -->
+<div class="v-modal" id="vModal">
+  <div class="v-modal-inner">
+    <button class="v-close" onclick="closeVid()">✕</button>
+    <!--
+    DEVELOPER: This modal player is used by all testimonial cards.
+    The video src is injected automatically from data-video attributes.
+    Supports: local MP4 files AND YouTube embed URLs.
+    No changes needed here unless you want to customize the player.
+    -->
+    <video id="vPlayer" controls playsinline></video>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── HAMBURGER ── */
+const hb = document.getElementById('hamburger');
+const mn = document.getElementById('mobileNav');
+hb.addEventListener('click', () => {
+  mn.classList.toggle('open');
+  const s = hb.querySelectorAll('span');
+  if (mn.classList.contains('open')) {
+    s[0].style.transform = 'rotate(45deg) translate(5px,5px)';
+    s[1].style.opacity = '0';
+    s[2].style.transform = 'rotate(-45deg) translate(5px,-5px)';
+  } else { s.forEach(x => { x.style.transform=''; x.style.opacity=''; }); }
+});
+function closeMob() {
+  mn.classList.remove('open');
+  hb.querySelectorAll('span').forEach(x => { x.style.transform=''; x.style.opacity=''; });
+}
+
+/* ── SCROLL REVEAL ── */
+// Only animate elements that are below the fold on load
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.remove('pre-animate');
+      e.target.classList.add('vis');
+      ro.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => {
+  const rect = el.getBoundingClientRect();
+  // Only hide elements that start below the viewport
+  if (rect.top > window.innerHeight) {
+    el.classList.add('pre-animate');
+  }
+  ro.observe(el);
+});
+
+/* ── COUNTER ANIMATION ── */
+function countUp(el, target) {
+  let start = null;
+  const dur = 1800;
+  const orig = el.innerHTML;
+  const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts-start)/dur, 1);
+    const ease = 1 - Math.pow(1-p, 4);
+    el.innerHTML = Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.stat-num[data-target]').forEach(el => {
+        countUp(el, parseInt(el.dataset.target));
+      });
+    }
+  });
+}, { threshold: 0.5 }).observe(document.getElementById('stats'));
+
+/* ── VIDEO MODAL ── */
+const modal = document.getElementById('vModal');
+const player = document.getElementById('vPlayer');
+document.querySelectorAll('.testi-card').forEach(c => {
+  c.addEventListener('click', () => {
+    const src = c.dataset.video;
+    if (src && src.trim() && !src.includes('DEVELOPER') && !src.includes('/*')) {
+      player.src = src;
+      modal.classList.add('open');
+      player.play().catch(()=>{});
+    }
+  });
+});
+function closeVid() { modal.classList.remove('open'); player.pause(); player.src=''; }
+function openModal(src) { if (src) { player.src=src; modal.classList.add('open'); player.play().catch(()=>{}); } }
+modal.addEventListener('click', e => { if (e.target === modal) closeVid(); });
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeVid(); });
+
+/* ── HERO FORM ── */
+function heroGo() {
+  const inp = document.getElementById('heroEmail');
+  if (!inp.value || !inp.value.includes('@')) { inp.style.outline='2px solid red'; return; }
+  inp.style.outline='';
+  inp.nextElementSibling.textContent='✓ You\'re In!';
+  inp.nextElementSibling.style.background='#3a9a3a';
+  setTimeout(() => { window.location.href='#contact'; }, 800);
+}
+document.getElementById('heroEmail').addEventListener('keydown', e => { if (e.key==='Enter') heroGo(); });
+
+/* ── CONTACT FORM ── */
+function sendForm(e) {
+  e.preventDefault();
+  const btn = e.target;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = '✓ Message received! We\'ll be in touch within 24 hours.';
+    btn.style.background = '#2a8a2a';
+  }, 1500);
+}
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+<script>
+document.querySelectorAll('.sound-toggle').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const iframe = this.closest('.video-item').querySelector('iframe');
+    const isMuted = this.dataset.muted === 'true';
+    const src = iframe.src;
+
+    if (isMuted) {
+      iframe.src = src.replace('mute=1', 'mute=0');
+      this.textContent = '🔊';
+      this.dataset.muted = 'false';
+    } else {
+      iframe.src = src.replace('mute=0', 'mute=1');
+      this.textContent = '🔇';
+      this.dataset.muted = 'true';
+    }
+  });
+});
+</script>
+
+<script>
+window.addEventListener("load", function () {
+
+  const videoItems = document.querySelectorAll(".video-item");
+
+  videoItems.forEach(item => {
+
+    const video = item.querySelector("video");
+    const playBtn = item.querySelector(".play-toggle");
+    const soundBtn = item.querySelector(".sound-toggle");
+
+    // Start autoplay manually
+    video.play().catch(() => {});
+
+    // PLAY / PAUSE
+    playBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      if (video.paused) {
+        video.play();
+        playBtn.textContent = "❚❚";
+      } else {
+        video.pause();
+        playBtn.textContent = "▶";
+      }
+    });
+
+    // UNMUTE / MUTE
+    soundBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+
+      video.muted = !video.muted;
+
+      if (video.muted) {
+        soundBtn.textContent = "🔇";
+      } else {
+        soundBtn.textContent = "🔊";
+      }
+    });
+
+  });
+
+});
+</script>
+</body>
+</html>
